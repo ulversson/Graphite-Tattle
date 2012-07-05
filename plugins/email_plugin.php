@@ -49,7 +49,7 @@ function email_plugin_notify($check,$check_result,$subscription,$alt_email=false
   $email = new fEmail();
   // This sets up fSMTP to connect to the gmail SMTP server
   // with a 5 second timeout. Gmail requires a secure connection.
-  $smtp = new fSMTP("localhost", sys_var('smtp_port'), FALSE, 5);
+  $smtp = new fSMTP(sys_var('smtp_server'), sys_var('smtp_port'), FALSE, 5);
   $smtp->authenticate('', '');
   if ($alt_email) {
     $email_address = usr_var('alt_email',$user->getUserId());
